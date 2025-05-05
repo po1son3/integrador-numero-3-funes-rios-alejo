@@ -1,23 +1,24 @@
 import express from 'express'
 import 'dotenv/config'
-import mongoose from 'mongoose'
+import connection  from './utils/connection.js'
+
+
+
 const app = express()
 const PORT = 8080
 const URI_DB = process.env.URI_LOCAL
 console.log(URI_DB)
 
-const connection = async (uri) => {
-    try {
-        await mongoose.connect(uri)
-        console.log('Conexion a MongoDB OK')
-    } catch (error) {
-        console.log('Conexion Error', error)
-    }
-}
+
 
 app.get('/', (req, res) => {
 res.send('oli World!')
 })
+
+app.get('/api/v1/productos', (req, res) => {
+    res.send('Hellor wordl')
+})
+
 
 app.listen(PORT, (err) => {
     if (err) throw new Error('No se pudo levantar el server')
