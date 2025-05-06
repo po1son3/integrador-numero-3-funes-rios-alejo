@@ -1,40 +1,19 @@
 import express from 'express'
+import productosController from '../controllers/productos.controller.js'
+
+
 const routerProductos = express.Router()
 
 
-routerProductos.get('/api/v1/productos', (req, res) => { //! GET ALL
-    res.send('GET ALL')
-})
+routerProductos.get('/', productosController.getAll ) //! GET ALL
 
+routerProductos.get('/:id', productosController.getOne) //! GET ONE
 
-routerProductos.get('/api/v1/productos/:id', (req, res) => { //! GET ONE
-    const id = req.params.id
-    console.log(id)
-    res.send('GET ONE')
-})
+routerProductos.post('/', productosController.create )  //! CREATE
 
+routerProductos.put('/:id', productosController.update) //! UPDATE
 
-routerProductos.post('/api/v1/productos', (req, res) => { //! CREATE
-    const productoACrear = req.body
-    console.log(productoACrear)
-    res.send('Created Producto')
-})
-
-
-routerProductos.put('/api/v1/productos/:id', (req, res) => { //! UPDATE
-    const id = req.params.id
-    const productoAEditar = req.params.body
-    console.log(productoAEditar)
-    console.log(id)
-    res.send('Updated Producto')
-})
-
-
-routerProductos.delete('/api/v1/productos/:id', (req, res) => { //! UPDATE
-    const id = req.params.id
-    console.log(id)
-    res.send('Update Producto')
-})
+routerProductos.delete('/:id', productosController.remove) //! UPDATE
 
 
 export default routerProductos

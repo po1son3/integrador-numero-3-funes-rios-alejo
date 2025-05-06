@@ -11,7 +11,7 @@ const URI_DB = process.env.URI_LOCAL
 
 
 app.use(express.json()) // hace que funcione el bddy dl postman
-app.use('/', routerProductos)
+app.use('/api/v1/productos', routerProductos)
 
 
 app.get('/', (req, res) => {
