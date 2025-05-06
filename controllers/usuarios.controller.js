@@ -12,6 +12,15 @@ res.send('getOne')
 
 const create = async (req, res) => {
     const nuevoUsuario = req.body
+
+    const{ nombre, correo, password, confirm_password } = nuevoUsuario
+    if (password !== confirm_password ){ // si es distinto se imprime esto
+        console.log('Las constraseñas no coincide')
+        return res.status(500).json({
+            mensaje: 'Las contraseñas no coinciden'
+        })
+    }
+
     try {
         const usuarioCreado = await models.crearUsuario(nuevoUsuario)
         res.send(usuarioCreado)
