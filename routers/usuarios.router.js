@@ -1,6 +1,8 @@
 import express from 'express'
-const routerUsuarios = express.Router()
+import usuariosController from '../controllers/usuarios.controller.js'
 
+
+const routerUsuarios = express.Router()
 
 routerUsuarios.get('/', usuariosController.getAll ) //! GET ALL
 
