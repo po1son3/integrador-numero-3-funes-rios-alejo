@@ -30,3 +30,5 @@ const usuarioEsquema = new mongoose.Schema(// ahora acá definimos el documento
         versionKey: false
     }
 )
+
+const UsuarioModelo = mongoose.model('usuarios', usuarioEsquema) // 'usuarios' es el nombre de la colección.
