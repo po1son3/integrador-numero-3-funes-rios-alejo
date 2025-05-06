@@ -2,6 +2,7 @@ import express from 'express'
 import 'dotenv/config'
 import connection  from './utils/connection.js'
 import routerProductos from './routers/productos.router.js'
+import routerUsuarios from './routers/usuarios.router.js'
 
 
 
@@ -11,7 +12,9 @@ const URI_DB = process.env.URI_LOCAL
 
 
 app.use(express.json()) // hace que funcione el bddy dl postman
+
 app.use('/api/v1/productos', routerProductos) // aca adentro sucede la magia
+app.use('/api/v1/usuario', routerUsuarios) // aca adentro sucede la magia
 
 
 app.get('/', (req, res) => {
