@@ -1,3 +1,25 @@
+import mongoose from "mongoose"
+
+const ProductoEsquema = mongoose.Schema(
+    { // nuestro obj estará compuesto de:
+        nombre: {
+                    type: String,
+                    required: true
+                },
+        precio: Number, 
+        stock: Number,
+        marca: String,
+        categoria: String,
+        detalles: String,
+        foto: String,
+        envio: Boolean
+    },
+    {
+
+    }
+)
+
+
 const obtenerTodosLosProductos = () => {
     console.log('obtenerTodosLosProductos')
 }
