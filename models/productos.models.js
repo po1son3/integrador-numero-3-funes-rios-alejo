@@ -55,9 +55,14 @@ const crearProducto = async (productoNuevo) => {//CREATE
 
 }
 
-const EditarUnProducto = (productoEditado) => {
-    console.log('EditarUnProducto')
-
+const EditarUnProducto = async (productoAEditar) => {
+    try {
+        const options = {new: true}
+        const productoEditado =  await ProductoModelo.findByIdAndUpdate(productoAEditar.id, productoAEditar, options)
+        return productoEditado
+    } catch (error) {
+        throw error
+    }
 }
 
 const eliminarProducto = async (id) => {

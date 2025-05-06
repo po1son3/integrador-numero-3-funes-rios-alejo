@@ -27,7 +27,7 @@ const create = async (req, res) => {// ! CREATE
 
     try {
         const productoGuardado = await models.crearProducto(productoACrear)
-        res.json(productoGuardado)
+        res.status(201).json(productoGuardado)
         
     }catch (error) {
         console.log(error)
@@ -36,13 +36,19 @@ const create = async (req, res) => {// ! CREATE
     
 }
 
-const update = (req, res) => {
-models.EditarUnProducto()
+const update = async (req, res) => {
     const id = req.params.id
     const productoAEditar = req.params.body
-    console.log(productoAEditar)
-    console.log(id)
-    res.send('Updated Producto')
+    productoAEditar.id = id // le hago un id es lo mismo que hacer (productoAEditar, id)
+    
+    try {
+        const productoEditado= await models.EditarUnProducto(productoAEditar)
+        res.json(productoEditado)
+        
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({mensaje: 'No se pudo editar el producto solicitado'})
+    }
 }
 
 
