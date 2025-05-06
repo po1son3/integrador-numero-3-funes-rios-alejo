@@ -24,19 +24,23 @@ const ProductoModelo = mongoose.model('productos', ProductoEsquema)  // creo el 
 
 
 
-const obtenerTodosLosProductos = async () => {
-
+const obtenerTodosLosProductos = async () => {//GETALL
     try {
         const productos = await ProductoModelo.find()
         return productos
-    } catch (error) {
-        console.log(error)
+    }catch (error) {
+        throw error
     }
-    console.log('obtenerTodosLosProductos')
+
 }
 
-const obtenerUnProducto = (id) => {
-    console.log('obtenerUnProducto')
+const obtenerUnProducto = async (id) => {//GETONE
+    try {
+        const producto = await ProductoModelo.findById(id)
+        return producto
+    } catch (error) {
+        throw error
+    }
 
 }
 

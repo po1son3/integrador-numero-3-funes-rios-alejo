@@ -11,11 +11,15 @@ const getAll = async (req, res) => {
     }
 }
 
-const getOne = (req, res) => {//! GET ONE
-models.obtenerUnProducto()
+const getOne = async (req, res) => {//! GET ONE
     const id = req.params.id
-    console.log(id)
-    res.send('GET ONE')
+    try {
+        const producto = await models.obtenerUnProducto(id)
+        res.json(producto)
+    }catch (error) {
+        console.log(error)
+    }
+    
 }
 
 const create = (req, res) => {
