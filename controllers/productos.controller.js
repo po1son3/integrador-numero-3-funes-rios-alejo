@@ -1,4 +1,6 @@
 import models from '../models/productos.models.js'
+
+
 const getAll = (req, res) => {
 models.obtenerTodosLosProductos()
     res.send('GET ALL')
@@ -33,6 +35,7 @@ const remove = (req, res) => {
     console.log(id)
     res.send('Update Producto')
 }
+
 
 export default {
     getAll,

@@ -14,13 +14,24 @@ const ProductoEsquema = mongoose.Schema(
         foto: String,
         envio: Boolean
     },
-    {
-
+    { // las keys, "creo el modelo a partir del schema"
+        timestamps: true,
+        versionKey: false
     }
 )
 
+const ProductoModelo = mongoose.model('productos', ProductoEsquema)  // creo el modelo
 
-const obtenerTodosLosProductos = () => {
+
+
+const obtenerTodosLosProductos = async () => {
+
+    try {
+        const productos = await ProductoModelo.find()
+        console.log(productos)
+    } catch (error) {
+        console.log(error)
+    }
     console.log('obtenerTodosLosProductos')
 }
 
