@@ -9,12 +9,12 @@ const usuarioEsquema = new mongoose.Schema(// ahora acá definimos el documento
                 },
         apellido: String,
         correo : {
-                    tpye: String,
+                    type: String,
                     required: true,
                     unique: true
             },
         dni: {
-            tpye: String,
+            type: String,
             required: true,
             unique: true
             },
@@ -39,8 +39,15 @@ const obtenerTodosLosUsuarios = () => {
 const obtenerUnUsuario = () => {
 
 }
-const crearUsuario = () => {
-
+const crearUsuario = async (nuevoUsuario) => {
+    try {
+        const usuarioCreado = new UsuarioModelo(nuevoUsuario)
+        const usuarioGuardado = await usuarioCreado.save()
+        return usuarioGuardado
+        
+    } catch (error) {
+        throw error
+    }
 }
 const EditarUnUsuario = () => {
 
@@ -50,9 +57,9 @@ const eliminarUsuario = () => {
 }
 
 export default {
-obtenerTodosLosProductos,
-obtenerUnProducto,
-crearProducto,
-EditarUnProducto,
-eliminarProducto
+obtenerTodosLosUsuarios,
+obtenerUnUsuario,
+crearUsuario,
+EditarUnUsuario,
+eliminarUsuario
 }
