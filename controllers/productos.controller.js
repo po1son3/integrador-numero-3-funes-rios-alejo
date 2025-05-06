@@ -38,7 +38,7 @@ const create = async (req, res) => {// ! CREATE
 
 const update = async (req, res) => {
     const id = req.params.id
-    const productoAEditar = req.params.body
+    const productoAEditar = req.body
     productoAEditar.id = id // le hago un id es lo mismo que hacer (productoAEditar, id)
     
     try {
