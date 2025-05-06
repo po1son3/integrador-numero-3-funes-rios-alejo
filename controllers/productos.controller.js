@@ -22,11 +22,18 @@ const getOne = async (req, res) => {//! GET ONE
     
 }
 
-const create = (req, res) => {
-models.crearProducto()
+const create = async (req, res) => {// ! CREATE
     const productoACrear = req.body
-    console.log(productoACrear)
-    res.send('Created Producto')
+
+    try {
+        const productoGuardado = await models.crearProducto(productoACrear)
+        res.json(productoGuardado)
+        
+    }catch (error) {
+        console.log(error)
+        res.status(500).json({ mensaje: 'Algo falló, no se pudo guardar el producto' })
+    }
+    
 }
 
 const update = (req, res) => {

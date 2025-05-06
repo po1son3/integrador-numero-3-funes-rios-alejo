@@ -44,8 +44,14 @@ const obtenerUnProducto = async (id) => {//GETONE
 
 }
 
-const crearProducto = (productoNuevo) => {
-    console.log('crearProducto')
+const crearProducto = async (productoNuevo) => {//CREATE
+    try {
+        const productoAGuardar = new ProductoModelo(productoNuevo)
+        const productoGuardado = await productoAGuardar.save()
+        return productoGuardado
+    } catch (error) {
+        throw error
+    }
 
 }
 
