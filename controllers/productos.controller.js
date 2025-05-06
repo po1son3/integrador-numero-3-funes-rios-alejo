@@ -44,12 +44,20 @@ models.EditarUnProducto()
     console.log(id)
     res.send('Updated Producto')
 }
-const remove = (req, res) => {
-    models.eliminarProducto()
 
+
+const remove = async (req, res) => {
     const id = req.params.id
-    console.log(id)
-    res.send('Update Producto')
+
+    try {
+        const productoEliminado = await models.eliminarProducto(id)
+        res.json(productoEliminado)
+        
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({mensaje: 'No se pudo borrar el producto'})
+    }
+
 }
 
 
