@@ -13,8 +13,9 @@ const URI_DB = process.env.URI_LOCAL
 
 app.use(express.json()) // hace que funcione el bddy dl postman
 
+// ! RUTAS
 app.use('/api/v1/productos', routerProductos) // aca adentro sucede la magia
-app.use('/api/v1/usuario', routerUsuarios) // aca adentro sucede la magia
+app.use('/api/v1/usuarios', routerUsuarios) // aca adentro sucede la magia
 
 
 app.get('/', (req, res) => {
