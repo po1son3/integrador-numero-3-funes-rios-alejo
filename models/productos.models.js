@@ -14,7 +14,7 @@ const ProductoEsquema = mongoose.Schema(
         foto: String,
         envio: Boolean
     },
-    { // las keys, "creo el modelo a partir del schema"
+    { // las keys
         timestamps: true,
         versionKey: false
     }
@@ -28,7 +28,7 @@ const obtenerTodosLosProductos = async () => {
 
     try {
         const productos = await ProductoModelo.find()
-        console.log(productos)
+        return productos
     } catch (error) {
         console.log(error)
     }

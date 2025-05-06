@@ -1,9 +1,14 @@
 import models from '../models/productos.models.js'
 
 
-const getAll = (req, res) => {
-models.obtenerTodosLosProductos()
-    res.send('GET ALL')
+const getAll = async (req, res) => {
+
+    try {
+    const productos = await models.obtenerTodosLosProductos()
+    res.json(productos)
+    }catch (error) {
+    console.log(error)
+    }
 }
 
 const getOne = (req, res) => {//! GET ONE
