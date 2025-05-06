@@ -32,3 +32,27 @@ const usuarioEsquema = new mongoose.Schema(// ahora acá definimos el documento
 )
 
 const UsuarioModelo = mongoose.model('usuarios', usuarioEsquema) // 'usuarios' es el nombre de la colección.
+
+const obtenerTodosLosUsuarios = () => {
+
+}
+const obtenerUnUsuario = () => {
+
+}
+const crearUsuario = () => {
+
+}
+const EditarUnUsuario = () => {
+
+}
+const eliminarUsuario = () => {
+
+}
+
+export default {
+obtenerTodosLosProductos,
+obtenerUnProducto,
+crearProducto,
+EditarUnProducto,
+eliminarProducto
+}
