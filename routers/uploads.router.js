@@ -1,5 +1,5 @@
 import express from 'express'
-import controller from '../controllers/upload.controller.js'
+import controller from '../controllers/uploads.controller.js'
 
 const routerUpload = express.Router()
 
