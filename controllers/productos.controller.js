@@ -1,11 +1,12 @@
 import models from '../models/productos.models.js'
+import handleMongo from '../utils/handle-mongo-id.js'
 
 
 const getAll = async (req, res) => {
 
     try {
     const productos = await models.obtenerTodosLosProductos()
-    res.json(productos)
+    res.json(handleMongo(productos))
     }catch (error) {
     console.log(error)
     }
@@ -15,7 +16,7 @@ const getOne = async (req, res) => {//! GET ONE
     const id = req.params.id
     try {
         const producto = await models.obtenerUnProducto(id)
-        res.json(producto)
+        res.json(handleMongo(producto))
     }catch (error) {
         console.log(error)
     }
