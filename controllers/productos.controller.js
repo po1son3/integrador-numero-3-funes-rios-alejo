@@ -9,6 +9,9 @@ const getAll = async (req, res) => {
     res.json(handleMongo(productos))
     }catch (error) {
     console.log(error)
+    res.status(500).json({
+        mensaje: 'Error al obtener todos los productos '
+    })
     }
 }
 
@@ -19,6 +22,9 @@ const getOne = async (req, res) => {//! GET ONE
         res.json(handleMongo(producto))
     }catch (error) {
         console.log(error)
+        res.status(500).json({
+            mensaje: 'Error al obtener el producto'
+        })
     }
     
 }
