@@ -10,7 +10,7 @@ const getAll = async (req, res) => {
     }catch (error) {
     console.log(error)
     res.status(500).json({
-        mensaje: 'Error al obtener todos los productos '
+        mensaje: 'Error al obtener todos los productos'
     })
     }
 }
@@ -37,8 +37,10 @@ const create = async (req, res) => {// ! CREATE
         res.status(201).json(handleMongo(productoGuardado))
         
     }catch (error) {
-        console.log(error)
-        res.status(500).json({ mensaje: 'Algo falló, no se pudo guardar el producto' })
+        console.log('Error al crear el producto:', error)
+        res.status(500).json({ mensaje: 'Algo falló, no se pudo guardar el producto',
+            error: error.message
+         })
     }
     
 }
