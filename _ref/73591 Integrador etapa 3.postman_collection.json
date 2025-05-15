@@ -1,0 +1,191 @@
+{
+	"info": {
+		"_postman_id": "69d0e8b4-8076-47d9-a259-1f0d663d752b",
+		"name": "73591 Integrador etapa 3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43303348",
+		"_collection_link": "https://gold-shadow-264006.postman.co/workspace/Team-Workspace~be417992-fce2-4e91-8935-9c54d6c49257/collection/43303348-69d0e8b4-8076-47d9-a259-1f0d663d752b?action=share&source=collection_link&creator=43303348"
+	},
+	"item": [
+		{
+			"name": "CRUD Productos",
+			"item": [
+				{
+					"name": "Obtener todos los productos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/productos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear producto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"nombre\": \"Remera Paradise\",\r\n      \"foto\": \"imgs/paradise-japan.webp\",\r\n      \"detalles\": \"Remera T-Shirt corta fondo wave behind\",\r\n      \"precio\": 85000,\r\n      \"stock\": \"50\",\r\n      \"marca\": \"Luxury Paradise\",\r\n      \"categoria\": \"remera streetwear\",\r\n      \"id\": \"3\",\r\n      \"envio\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/productos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar un producto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"nombre\": \"Remera Paradise(Editado)\",\r\n        \"precio\": 80000,\r\n        \"stock\": 70,\r\n        \"marca\": \"Luxury Paradise\",\r\n        \"categoria\": \"remera streetwear\",\r\n        \"detalles\": \"Remera T-Shirt corta color pink\",\r\n        \"foto\": \"imgs/paradise-logo-pink.webp\",\r\n        \"envio\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/productos/681a83b48b241333edf95272",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"productos",
+								"681a83b48b241333edf95272"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener un producto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/productos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"productos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar un producto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/productos/68196599ddafac7d24b90253",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"productos",
+								"68196599ddafac7d24b90253"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Uploads Imagen",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "imagen",
+									"type": "file",
+									"src": "/C:/_curso/bc-73591-integrador-etapa-2-Alejo-Funes-Rios/public/imgs/paradise-project-2.webp"
+								},
+								{
+									"key": "",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/uploads",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"uploads"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
